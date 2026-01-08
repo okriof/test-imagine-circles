@@ -11,6 +11,10 @@ jobs:
       - image: docker:25.0.5-git
     resource_class: small
     steps:
-      - run: apk add python3
+      - run:
+          name: "Install the third snake!"
+          command: apk add python3
       - checkout
-      - run: python --version
+      - run:
+          name: "Check the version"
+          command: "python --version"
