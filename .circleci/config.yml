@@ -11,5 +11,6 @@ jobs:
       - image: docker:25.0.5-git
     resource_class: small
     steps:
+      - run: apk add python3
       - checkout
       - run: python --version
