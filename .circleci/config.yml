@@ -19,6 +19,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: "Setup the hub"
+          echo $DOCKERHUB_TOKEN | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      - run:
           name: "Build the image"
           command: |
             cd hellodock
