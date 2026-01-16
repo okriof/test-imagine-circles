@@ -18,8 +18,11 @@ jobs:
           name: Check environment
           command: |
             pwd
-            ls
-            echo hellothisisrunner > runfile
+            ls -lah .
+            ls -lah ..
+            ls -lah ../..
+            ls -lah /
+            echo hellothisisrunner > ../runfile
 
   buildit:
     docker:
