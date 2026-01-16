@@ -4,9 +4,10 @@ workflows:
   mainflow:
     jobs:
       - erunner
-      - buildit:
-          context:
-            - dockerhubaccess
+      
+#      - buildit:
+#          context:
+#            - dockerhubaccess
 
 jobs:
   erunner:
@@ -17,12 +18,18 @@ jobs:
       - run:
           name: Check environment
           command: |
+            whoami
             pwd
             ls -lah .
             ls -lah ..
             ls -lah ../..
             ls -lah /
             echo hellothisisrunner > ../runfile
+      - run:
+          name: Cat the local data
+          command: |
+            ls /data
+            cat /data/file
 
   buildit:
     docker:
