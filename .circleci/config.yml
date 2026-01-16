@@ -3,11 +3,24 @@ version: 2.1
 workflows:
   mainflow:
     jobs:
+      - erunner
       - buildit:
           context:
             - dockerhubaccess
 
 jobs:
+  erunner:
+    machine: true
+    resource_class: imagel/experirun
+    steps:
+      - run: echo "Hi I'm on Runners!"
+      - run:
+          name: Check environment
+          command: |
+            pwd
+            ls
+            echo hellothisisrunner > runfile
+
   buildit:
     docker:
       - image: cimg/base:2026.01
